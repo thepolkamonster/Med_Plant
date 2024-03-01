@@ -1,0 +1,4 @@
+# The SCSS folder, Node modules, packedge and packadge-lock, and static/css/app.css are all mundane files as on now, if these files are not needed, remember to remove them when needed
+# The latest encountered problem or accomplished task will be added here.
+
+Let's try to migrate our data to a database(Success).
