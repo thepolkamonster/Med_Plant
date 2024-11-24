@@ -1,29 +1,65 @@
-{% extends "import.html" %} 
-{% block content %}
+<html lang="en">
 
-<center>
-<br><h2>Medicinal Plant Identifier</h2><br>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Medicinal Leaf Classifier</title>
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <link rel="stylesheet" href="../static/css/index.css">
+    <script src="{{ url_for('static', filename='js/newjs.js') }}" type="text/javascript"></script>
+</head>
 
-    <form id="upload-file" method="post" enctype="multipart/form-data">
-         <input type="file" name="file" class="btn btn-success" id="imageUpload" accept=".png, .jpg, .jpeg">
-    </form>
+<body>
+    <!-- Navbar section -->
+    <nav class="navbar">
+        <div class="navbar_logo"><div >Netra</div><div>Botany recognition</div></div>
+        <div class="navbar_links">
+                <a href="#home"><li>Home</li></a>
+                <li>Identify</li>
+                <li>Explore</li>
+                <li>Login/Signup</li>
+        </div>
+    </nav> 
+    <!-- Home page section -->
+    <div class="home_page" id="home">
+        <div class="desc"><h1 style="font-weight: 700;font-size: 5rem;">PLANT <br>RECOGNITION</h1>
+            <h6 style="font-weight: 500; font-size: 2rem; text-align: start; justify-content: start;">Made Easy...</h6>
+        </div>
+        <div class="image"></div>
+    </div>
+    
 
-
-    <div class="image-section" style="display:none;">
-         <img id="imagePreview"  class="img-responsive" src="#" style="width:300px;height:300px;"/><br><br>
-         <div>
-            <button type="button" class="btn btn-info btn-lg " id="btn-predict">Predict!</button>
-         </div>
+    <!--Prediction section  -->
+    <div class="pred" >
+        <div class="pred_submission">
+            <br><h2>Medicinal Plant Identifier</h2><br>
+        
+            <form id="upload-file" method="post" enctype="multipart/form-data">
+                 <label class="imageUpload"><input type="file" name="file" class="" id="imageUpload" accept=".png, .jpg, .jpeg"> Add / Drop an image</label>
+            </form>
+        
+        
+            <div class="image-section" style="display:none;display: flex; flex-direction: column; justify-content: center;align-items: center;">
+                 <img id="imagePreview"  class="img-responsive" src="#" style="width:300px;height:300px; padding: 2px; border: 1px solid black;"/><br><br>
+                 <div>
+                    <button type="button" class="button" id="btn-predict">PREDICT!</button>
+                 </div>
+            </div>
+            <div class="loader" style="display:none;"></div>
+        </div>
+        <div class="pred_result">
+            <h2>Result</h2>
+            <h3 id="result">
+            </h3>
+        </div>
     </div>
 
-
-
-    <div class="loader" style="display:none;"></div>
-
-    <h3 id="result">
-        <span> </span>
-    </h3>
-
-
-</center><br><br>
-{% endblock %}
+    <!-- Footer section --> 
+    <div class="footer">
+        <p> @2024 Netra Botany Recognition</p>
+    </div>
+</body>
+</html>
