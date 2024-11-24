@@ -4,6 +4,7 @@ from flask_migrate import Migrate
 from views import blp as ViewsBlueprint
 from models import LeafModel
 from db import db
+from routes import routes
 
 def create_app():
     app = Flask(__name__)
@@ -27,6 +28,6 @@ def create_app():
 
     api = Api(app)
     api.register_blueprint(ViewsBlueprint)
+    app.register_blueprint(routes)
     
     return app
-
